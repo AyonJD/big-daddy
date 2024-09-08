@@ -1,7 +1,8 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import {Icon} from 'react-native-elements';
+
 import {TestIds, BannerAd} from 'react-native-google-mobile-ads';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const adUnitId = __DEV__
   ? TestIds.ADAPTIVE_BANNER
@@ -28,8 +29,7 @@ const CustomDrawerContent = props => {
         <TouchableOpacity
           style={styles.homeButton}
           onPress={() => props.navigation.navigate('Game')}>
-          {/* <Ionicons name="home-outline" size={30} color="#D3AE1F" /> */}
-          {/* <Icon name="home" type="ionicon" size={30} color="#D3AE1F" /> */}
+          <Ionicons name="home-outline" size={25} color="#D3AE1F" />
           <Text style={styles.homeText}>Home</Text>
         </TouchableOpacity>
       </View>
@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     paddingVertical: 16,
     marginLeft: -25,
+    alignItems: 'center',
   },
   homeText: {
     fontSize: 19,

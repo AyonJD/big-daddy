@@ -1,4 +1,7 @@
 {
-  "name": "Big Daddy",
-  "displayName": "Big Daddy"
+  "name": "RNGame",
+  "displayName": "RNGame",
+  "react-native-google-mobile-ads": {
+  "android_app_id": "ca-app-pub-6750866851453330~2970146485"
+  }
 }

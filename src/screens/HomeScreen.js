@@ -26,7 +26,9 @@ const HomeScreen = ({navigation}) => {
         <Text style={styles.title}>Play Goa games 2024</Text>
       </View>
 
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}>
         <View style={styles.content}>
           <TouchableOpacity
             onPress={() =>
@@ -35,7 +37,7 @@ const HomeScreen = ({navigation}) => {
                 isrotate: false,
               })
             }>
-            <View style={styles.imageContainer}>
+            <View style={[styles.imageContainer, {height: 200, marginBottom:20}]}>
               <Image
                 source={masterLinkImg}
                 style={styles.image}
@@ -65,10 +67,13 @@ const HomeScreen = ({navigation}) => {
         </View>
       </ScrollView>
 
-      <BannerAd
-        unitId={adUnitId}
-        size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-      />
+      {/* Move the BannerAd into its own container */}
+      <View style={styles.adContainer}>
+        <BannerAd
+          unitId={adUnitId}
+          size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+        />
+      </View>
     </SafeAreaView>
   );
 };
@@ -80,19 +85,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#62625F',
   },
+  scrollContent: {
+    paddingVertical: 0, // Remove extra padding
+  },
   content: {
-    flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    padding: 16,
+    paddingVertical: 8, // Adjust padding if needed
   },
   imageContainer: {
     width: 200,
-    height: 200,
-    marginBottom: 20,
+    height: 170,
+    marginBottom: 5, // Reduced margin bottom
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
     borderRadius: 10,
   },
   image: {
@@ -107,5 +113,9 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: 'bold',
     color: '#D3AE1F',
+  },
+  adContainer: {
+    alignItems: 'center',
+    paddingVertical: 8, // Adjust the padding around the ad if needed
   },
 });
